@@ -13,4 +13,7 @@
 
 - (AVPlayerViewController*)createPlayerViewController:(AVPlayer*)player withPlayerItem:(AVPlayerItem*)playerItem;
 
+- (void)didFinishRecording;
+
 @end
+

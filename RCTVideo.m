@@ -389,6 +389,28 @@ static NSString *const playbackRate = @"rate";
                                            selector:@selector(playbackStalled:)
                                                name:AVPlayerItemPlaybackStalledNotification
                                              object:nil];
+    
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didFinishRecording)
+                                                 name:@"kRecordingDidFinish"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(audioWillRecord)
+                                                 name:@"kRecordingWillBegin"
+                                               object:nil];
+}
+
+
+//- (void)did
+
+- (void)didFinishRecording {
+    [self setPaused:NO];
+    
+}
+
+- (void)audioWillRecord {
+    [self setPaused:YES];
 }
 
 - (void)playbackStalled:(NSNotification *)notification
